@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input onpropertychange事件的回调方法中不能设置该input的值，否则会出现该input propertychange事件无限触发的bug</title>
+</head>
+<body>
+	<input type="text">
+	<script>
+		/**
+		 * IE9以下支持onpropertychange事件，chrome、firefox、IE10+支持input事件
+		 */
+		var input = document.getElementsByTagName('input')[0];
+		var loopNum = 0;
+		if(input.attachEvent){
+			input.attachEvent('onpropertychange',function(){
+				loopNum++;
+				input.value = loopNum;
+			});
+		}else{
+			input.addEventListener('onpropertychange',function(){
+				loopNum++;
+				input.value = loopNum;
+			});
+		}
+		input.value = 0;
+	</script>
+</body>
+</html>

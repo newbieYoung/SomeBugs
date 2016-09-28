@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5 date input 在代码设置value属性时，必须保证值满足"YYYY-MM-dd"的形式。比如"2015-06-01"，其中如果月份和日期小于10时也必须通过补0来保证位数是两位，否则在某些浏览器里边是无效的，比如Chrome和一些移动端浏览器</title>
+</head>
+<body>
+	<div>给input设置"2015-6-2"是无效的</div>
+	<div><input type="date" value='2015-6-2'></div>
+	<div>给input设置"2015-06-02"是有效的</div>
+	<div><input type="date" value='2015-06-02'></div>
+	<h2>Chrome</h2>
+	<div><img src="./set_input_date_value_bug_in_chrome.png" alt=""></div>
+</body>
+</html>

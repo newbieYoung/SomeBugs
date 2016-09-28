@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>position和width的关系以及IE7中所谓的fixed定位“失效”的bug</title>
+    <style type="text/css">
+    .gray{
+        background-color:gray;
+    }
+    .blue{
+        background-color:blue;
+        /* 当元素是fixed、absolute定位时，元素的宽度由其子元素决定 */
+        position:fixed;
+        top:100px;
+        right:200px;
+    }
+    .yellow{
+        /* 当元素是其它定位时，元素的宽度由其父元素决定 */
+        background-color:yellow;
+        position:relative;
+        top:300px;
+        left:0px;
+    }
+    .item{
+        display:inline-block;
+        width:100px;
+        height:100px;
+        background-color:pink;
+        /* 但是如果在该div中设置了margin:auto由于IE7的盒模型包括margin，所以该元素的宽度实际是增加了，从而出现定位为fixed的父元素的出现所谓的fixed定位失效的bug */
+        margin:0 auto;
+    }
+    .relative{
+        position:relative;
+    }
+    </style>
+</head>
+<body>
+    <div class="gray">this is a normal gray div.</div>
+    <div class="blue">
+        <div class="item">this is a fixed blue div child.</div>
+    </div>
+    <div class="yellow">
+        <div class="item">this is a relative yellow div child.</div>
+    </div>
+</body>
+</html>

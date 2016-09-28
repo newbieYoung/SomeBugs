@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条是会影响页面布局的，也就是某一个元素在页面有滚动条和没有滚动条在视觉上是有差异的！</title>
+	<meta name="keywords" content="在window系统里边，在mac里边不会（不建议处理，因为这个问题不可控因素太多）">
+	<meta name="description" content="在实际开发过程中从一个页面跳转到另外一个页面由于不同页面对滚动条的规则不一样，可能会出现尽管所有页面共用同一个头部，但依然会出现头部跳动的情况，对产品体验有一定的影响。">
+	<style>
+	body{
+		background-color:#ddd;
+	}
+	.header{
+		width:500px;
+		height:200px;
+		margin:0 auto;
+		background-color:#000;
+	}
+	.button{
+		display: block;
+		width:200px;
+		height:20px;
+		margin:10px auto;
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<div class="header"></div>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+	<button class="button">切换body的overflow属性</button>
+
+	<script>
+		document.querySelector('button.button').addEventListener('click',function(e){
+			var of = document.body.style.overflow;
+			if(of === 'hidden'){
+				document.body.style.overflow = 'auto';
+			}else{
+				document.body.style.overflow = 'hidden';
+			}
+		});
+	</script>
+</body>
+</html>

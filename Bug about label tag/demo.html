@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>最好不要给label标签绑定任何事件，否则会出现事件重复执行以及内层元素事件被执行的bug</title>
+</head>
+<body>
+	<div id="div1" style="border:1px solid #000;padding:10px;">
+		<p>div1</p>
+		<label id="label1" style="border:1px solid #000;padding:10px;">
+			<span>label1</span>
+			<input id="input1" type="text" value="input1">
+		</label>
+	</div>
+	<div><img src="./bing_event_on_label_tag_bug.png" alt=""></div>
+	<div><a href="http://stackoverflow.com/questions/17185265/jquery-click-event-triggers-twice-when-clicked-on-html-label/17185362#17185362" target="_blank">去stackoverflow查看相似问题</a></div>
+	<script>
+		document.querySelector('#input1').addEventListener('click',function(){
+			console.log('click input1');
+		});
+		document.querySelector('#div1').addEventListener('click',function(){
+			console.log('click div1');
+		});
+		document.querySelector('#label1').addEventListener('click',function(){
+			console.log('click label1');
+		});
+	</script>
+</body>
+</html>

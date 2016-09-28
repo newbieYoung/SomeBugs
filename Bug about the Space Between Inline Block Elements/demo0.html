@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>当某个元素内部的子元素全是行内元素时，有时候为了代码看起来整洁，一般会在格式化html代码时人为区分代码块，这时每个子元素之间会出现间距，即使设置padding和margin为0依然会有</title>
+	<meta name="description" content="可能是因为浏览器监测到某个元素的子元素全是行内元素时会把里边的字符内容当成文字处理，而每个子元素的代码块之间是有换行符的，所以会有间隔；此外可以通过设置该元素的字体大小属性可以控制间距的大小">
+	<style>
+		.stage{
+			width:964px;
+			height:100px;
+			margin:0 auto;
+		}
+		.rect{
+			width:100px;
+			height:100px;
+			background-color: green;
+			display: inline-block;
+		}
+		.font-0{
+			font-size: 0;
+		}
+		.font-12{
+			font-size: 12px;
+		}
+		.font-14{
+			font-size: 14px;
+		}
+		.font-16{
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<h1>font-size:0</h1>
+	<div class="stage font-0">
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+	</div>
+	<h1>font-size:12px（font-size属性最小有效值是12px）</h1>
+	<div class="stage font-12">
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+	</div>
+	<h1>font-size:14px</h1>
+	<div class="stage font-14">
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+	</div>
+	<h1>font-size:16px</h1>
+	<div class="stage font-16">
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+	</div>
+	<h1>如果不设置font-size默认应该是16px</h1>
+	<div class="stage">
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+		<div class="rect"></div>
+	</div>
+</body>
+</html>

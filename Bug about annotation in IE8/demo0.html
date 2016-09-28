@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html注释在IE8中也会被当成dom元素</title>
+</head>
+<body>
+	<ul id="ul">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<!-- 5 -->
+	</ul>
+	<script type="text/javascript">
+		/**
+		 * 正常情况下ul应该只有4个子元素，但是在IE8中会有5个元素，因为注释被算成了文本元素
+		 */
+		alert(document.getElementById('ul').children.length);
+	</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>body标签内部的直接子元素最好不要设置margin属性，否则会导致该元素包括的范围比body包括的范围大然后部分内容不能显示（猜测）或者贴近底部</title>
+</head>
+<body>
+	<div style="margin:20px;background:green;">
+		this is a margin div
+	</div>
+</body>
+</html>

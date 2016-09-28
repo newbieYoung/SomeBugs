@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>toFixed银行家算法，四舍五入时如果舍入位是5则保证一半机会舍一半机会入，避免全部舍弃或者全部入一位产生较大误差</title>
+</head>
+<body>
+	<script type="text/javascript">
+		console.log('根据舍入位前两位的奇偶性判断，总结规律为奇偶5舍、奇奇5入、偶奇5舍、偶偶5入');
+		console.log(0.305.toFixed(2));//0.30
+		console.log(0.315.toFixed(2));//0.32
+		console.log(0.325.toFixed(2));//0.33
+		console.log(0.335.toFixed(2));//0.34
+		console.log(0.345.toFixed(2));//0.34
+		console.log(0.405.toFixed(2));//0.41
+		console.log(0.415.toFixed(2));//0.41
+		console.log(0.425.toFixed(2));//0.42
+		console.log(0.435.toFixed(2));//0.43
+		console.log(0.445.toFixed(2));//0.45
+	</script>
+</body>
+</html>

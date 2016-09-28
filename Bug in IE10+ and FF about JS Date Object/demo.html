@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new Date('2016-06-18 00:00:00');在IE10+以及FF里边有bug（Chrome中正常），不能得到正常的日期对象</title>
+</head>
+<body>
+	<script>
+		alert(new Date('2016-06-18 00:00:00').getTime());
+	</script>
+</body>
+</html>

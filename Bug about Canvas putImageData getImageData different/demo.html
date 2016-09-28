@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>在像素点的alpha值不为255时有可能使用putImageData显示像素数据然后再使用getImageData获取像素数据会发现前后像素数据有丢失</title>
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict';
+		let width = 1;
+		let height = 1;
+		let canvas = document.createElement('canvas');
+		let context = canvas.getContext('2d');
+		let imageData = context.getImageData(0,0,width,height);
+		for(let i=0;i<imageData.data.length;i++){
+			//如果alpha值不为255，则rgb有可能会发生数据丢失
+			imageData.data[i] = Math.floor(Math.random()*256);//取随机数字
+			//alpha值为255时不管rgb值是多少肯定不会发生数据丢失
+			// if(i%4==3){
+			// 	imageData.data[i] = 255;
+			// }else{
+			// 	imageData.data[i] = Math.floor(Math.random()*256);//取随机数字
+			// }
+		}
+		context.putImageData(imageData,0,0,0,0,width,height);
+		let imageDataNext = context.getImageData(0,0,width,height);
+		let diffNum = 0;
+		for(let i=0;i<imageData.data.length;i++){
+			if(imageDataNext.data[i]!==imageData.data[i]){
+				diffNum++;
+				console.log(imageDataNext.data[i]+' '+imageData.data[i]+' '+imageData.data[Math.floor(i/4)+3]);
+			}else{
+				console.log(imageData.data[Math.floor(i/4)+3]);
+			}
+		}
+		console.log('total:'+diffNum);
+	</script>
+</body>
+</html>
