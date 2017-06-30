@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <title>如果img标签的max-width属性等于100%会导致父元素的宽度超过页面宽度时不能完全包含其子元素</title>
+    <style>
+        .line{
+            height:50px;
+            background-color:pink;
+            white-space: nowrap;
+            float:left;
+        }
+        .line span{
+            display:inline-block;
+            height:100%;
+            border-right:1px solid #000;
+            max-width:200px;
+            line-height: 50px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        img{
+            max-width:100%;
+        }
+    </style>
+</head>
+<body>
+<div class="line"><span>一一一一一一一一一一一一一一</span><span>二二二二二二二二二二二二</span><span>三三三三三三三三三三三三三三三三</span><span><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"><img class="i-emoji-m" src="//qzonestyle.gtimg.cn/qzone/em/e400832.gif" alt="表情"></span></div>
+</body>
+</html>
