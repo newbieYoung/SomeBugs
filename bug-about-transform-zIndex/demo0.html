@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transform导致zIndex失效</title>
+    <style>
+        .grand{
+            width:60px;
+            height:120px;
+            padding-top:10px;
+            background-color:lightseagreen;
+        }
+        .parent{
+            width:50px;
+            height:100px;
+            background-color:lightsalmon;
+            padding-top:10px;
+            position: relative;
+        }
+        .child{
+            width:50px;
+            height:100px;
+            background-color:lightblue;
+            margin-left:10px;
+            position: relative;
+            z-index:-1;
+        }
+    </style>
+</head>
+<body>
+<div class="grand">
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var grand = document.querySelector('.grand');
+        var parent = document.querySelector('.parent');
+        var child = document.querySelector('.child');
+
+        /**
+         * 给元素设置transform属性会创建一个新的stacking context，译作层叠上下文的一个区域；
+         * 原本的层叠规则就会发生变化，导致了设置了transform的元素变成了一个层叠上下文容器，也就相当于最底层；
+         * 与其他兄弟元素或者外层元素依然保持原来的层叠规则，影响的只是其子元素。
+         * 另外还存在其它情况也会导致类似情形，比如：设置透明度等。
+         */
+        parent.style.transform = 'scale(1)';
+    }
+</script>
+</body>
+</html>
