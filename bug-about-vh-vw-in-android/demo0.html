@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>在android中input等输入组件获得焦点时软键盘弹出视口高度见小会导致采用vh单位的属性也发生变化（减小）</title>
+    <style>
+        .div1{
+            width:10vw;
+            height:12vh;
+            font-size:10vw;
+            line-height:10vh;
+            background-color:pink;
+        }
+        .div2{
+            width:10vmin;
+            font-size:10vh;
+            line-height:10vmax;
+            height:10vmax;
+            background-color:gray;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">hello</div>
+<div class="div2">world</div>
+<input type="text" placeholder="input text">
+</body>
+</html>
