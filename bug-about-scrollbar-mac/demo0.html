@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在MAC操作系统里边显示设置页面滚动条样式会导致滚动条独立于内容元素，如果不显示设置则滚动条不会影响内容元素的尺寸</title>
+    <style>
+        body{
+            background-color:lightblue;
+            height:110vh;
+            margin:0;
+            padding:0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #c1c1c1;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #f1f1f1;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
