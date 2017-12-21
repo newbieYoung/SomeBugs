@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" >
+    <meta name="viewport">
     <meta name="format-detection" content="telephone=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>在android中input等输入组件获得焦点时软键盘弹出视口高度见小会导致采用vh单位的属性也发生变化（减小）</title>
+    <title>在android中input等输入组件获得焦点时软键盘弹出视口高度变小会导致采用vh单位的属性也发生变化（变小）</title>
     <style>
         .div1{
             width:10vw;
@@ -28,5 +28,36 @@
 <div class="div1">hello</div>
 <div class="div2">world</div>
 <input type="text" placeholder="input text">
+<script>
+    window.onload = function(){
+        /**
+         * 因为vw、vh是相对于浏览器视口宽度而言的，那么当输入组件获取焦点软件盘弹出导致视口高度变化时强制设置视口宽度可行吗？
+         */
+        var $viewport = document.querySelector('meta[name=viewport]');
+        var initViewWidth = document.documentElement.clientWidth;
+        var initViewHeight = document.documentElement.clientHeight;
+        $viewport.setAttribute('content','content="width='+initViewWidth+',height='+initViewHeight+', initial-scale=1.0, maximum-scale=1.0, user-scalable=0"');
+
+        var $div1 = document.querySelector('.div1');
+        var style1 = window.getComputedStyle($div1);
+        alert(style1.getPropertyValue('width')+' '+style1.getPropertyValue('height')+' '+document.documentElement.clientWidth+' '+document.documentElement.clientHeight);
+
+        var $div2 = document.querySelector('.div2');
+        //var style2 = window.getComputedStyle($div2);
+
+        window.addEventListener('resize',function(){
+            var style1 = window.getComputedStyle($div1);
+            //var style2 = window.getComputedStyle($div2);
+            /**
+             * 刚开始初始化时就已经设置了viewport的宽高，发现没有效果，然后这里在强制设置一次，依然没有效果；
+             * 视口高度确实被改变了，但是同时视口宽度也被等比例改变了；
+             * 感觉在视口尺寸的处理上浏览器内核也有一定的逻辑，猜测为它总是会保证视口的宽高比例一致，像当前情况，软件盘弹出时视口高度变小；
+             * 这时发现前端强制设置为原始高度，为了保证宽高比例一致，此时就会扩大宽度。
+             */
+            $viewport.setAttribute('content','content="width='+initViewWidth+',height='+initViewHeight+', initial-scale=1.0, maximum-scale=1.0, user-scalable=0"');
+            alert(style1.getPropertyValue('width')+' '+style1.getPropertyValue('height')+' '+document.documentElement.clientWidth+' '+document.documentElement.clientHeight);
+        },false);
+    }
+</script>
 </body>
 </html>
