@@ -27,9 +27,12 @@
 <body>
 <div class="div1">hello</div>
 <div class="div2">world</div>
+<p>log:</p>
 <input type="text" placeholder="input text">
 <script>
     window.onload = function(){
+        var $log = document.querySelector('p');
+
         /**
          * 因为vw、vh是相对于浏览器视口宽度而言的，那么当输入组件获取焦点软件盘弹出导致视口高度变化时强制设置视口宽度可行吗？
          */
@@ -40,7 +43,7 @@
 
         var $div1 = document.querySelector('.div1');
         var style1 = window.getComputedStyle($div1);
-        alert(style1.getPropertyValue('width')+' '+style1.getPropertyValue('height')+' '+document.documentElement.clientWidth+' '+document.documentElement.clientHeight);
+        log($log,'log:'+style1.getPropertyValue('width')+' '+style1.getPropertyValue('height')+' '+document.documentElement.clientWidth+' '+document.documentElement.clientHeight);
 
         var $div2 = document.querySelector('.div2');
         //var style2 = window.getComputedStyle($div2);
@@ -55,8 +58,11 @@
              * 这时发现前端强制设置为原始高度，为了保证宽高比例一致，此时就会扩大宽度。
              */
             $viewport.setAttribute('content','content="width='+initViewWidth+',height='+initViewHeight+', initial-scale=1.0, maximum-scale=1.0, user-scalable=0"');
-            alert(style1.getPropertyValue('width')+' '+style1.getPropertyValue('height')+' '+document.documentElement.clientWidth+' '+document.documentElement.clientHeight);
+            log($log,'log:'+style1.getPropertyValue('width')+' '+style1.getPropertyValue('height')+' '+document.documentElement.clientWidth+' '+document.documentElement.clientHeight);
         },false);
+    }
+    function log($log,text){
+        $log.innerText = text;
     }
 </script>
 </body>
