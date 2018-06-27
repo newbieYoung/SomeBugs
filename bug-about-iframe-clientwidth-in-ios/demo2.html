@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>demo2</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover ">
+    <style>
+        body,html{
+            padding:0;
+            margin:0;
+            background-color:gray;
+        }
+        .len1{
+            width:270px;
+            height:50px;
+            background-color:green;
+        }
+        .len2{
+            width:290px;
+            height:50px;
+            background-color:pink;
+        }
+    </style>
+</head>
+<body>
+<div class="client-width"></div>
+<div class="len1">270</div>
+<div class="len2">290</div>
+<script>
+    window.onload = function(){
+        var $width = document.querySelector('.client-width');
+        $width.innerHTML = document.documentElement.clientWidth;
+    }
+</script>
+</body>
+</html>

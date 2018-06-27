@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>容器</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover ">
+    <style>
+        body,html,ul{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            list-style-type: none;
+        }
+        .demo0{
+            width:300px;
+        }
+        .demo1{
+            width:250px;
+        }
+        .demo2{
+            width:200px;
+        }
+        .demo0 iframe,
+        .demo1 iframe,
+        .demo2 iframe{
+            width:100%;
+        }
+        /*
+         * 在IOS中iframe中嵌入页面的clientWidth属性是由嵌入页面内容决定的而不是由外部iframe的宽度决定的
+         */
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="demo0">
+            <iframe src="./demo0.html" frameborder="0"></iframe>
+        </li>
+        <li class="demo1">
+            <iframe src="./demo1.html" frameborder="0"></iframe>
+        </li>
+        <li class="demo2">
+            <iframe src="./demo2.html" frameborder="0"></iframe>
+        </li>
+    </ul>
+</body>
+</html>
