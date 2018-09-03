@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>混合模式会带来较大的渲染压力，特别是当其本身还具有动画属性时</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover ">
+    <style>
+        /* 默写老旧机型会出现页面渲染截断或者页面闪烁的情况 */
+        body{
+            padding:0;
+            margin:0;
+        }
+        .container{
+            width:100vw;
+            height:100vh;
+            padding-top:100vh;
+            background-image:url(./blend-2.jpg);
+            background-repeat: repeat-y;
+        }
+        .blend-1{
+            top:100vh;
+            width:132px;
+            height:112px;
+            background-image:url(./blend-1.png);
+            background-size:100% 100%;
+            mix-blend-mode: screen;
+            animation-name: bounce;
+            transform-origin: center bottom;
+            animation-duration: 2s;
+            animation-fill-mode: both;
+            animation-iteration-count:infinite;
+        }
+        @keyframes bounce {
+            from,
+            20%,
+            53%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+            40%,
+            43% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -30px, 0);
+                transform: translate3d(0, -30px, 0);
+            }
+            70% {
+                -webkit-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+                -webkit-transform: translate3d(0, -15px, 0);
+                transform: translate3d(0, -15px, 0);
+            }
+            90% {
+                -webkit-transform: translate3d(0, -4px, 0);
+                transform: translate3d(0, -4px, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="blend-1"></div>
+</div>
+</body>
+</html>
