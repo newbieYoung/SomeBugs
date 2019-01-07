@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在三星 S8+、S9+等曲面屏机型中 REM 实际渲染尺寸会偏大</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover ">
+    <script>
+        (function (win, doc) {
+            var docEl = document.documentElement;
+            function setFont() {
+                var cliWidth = docEl.clientWidth;
+                if(cliWidth>750){
+                    cliWidth = 750;
+                }
+                docEl.style.fontSize = 100 * (cliWidth / 750) + 'px';
+            }
+            setFont()
+        })(window, document);
+    </script>
+    <style>
+        body{
+            margin:0;
+            padding:0;
+        }
+        .rect{
+            width:1rem;
+            height:1rem;
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div class="rect"></div>
+    <script>
+        window.onload = function(){
+            var docEl = document.documentElement;
+            var $rect = document.querySelector('.rect');
+            var size = $rect.getBoundingClientRect();
+            alert(docEl.clientWidth+' '+window.innerWidth+' '+size.width+' '+docEl.style.fontSize);
+        }
+    </script>
+</body>
+</html>
