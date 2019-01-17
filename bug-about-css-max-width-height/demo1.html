@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>max-width 属性只能限制由 width 属性影响的元素高度</title>
+    <style>
+        .parent{
+            width:200px;
+            height:200px;
+            background-color:gray;
+        }
+        .parent .child{
+            display:inline-block;
+            height:50px;
+            padding-left:200%;/* padding 属性导致元素尺寸增宽并不受 max-width 属性的限制 */
+            max-width:50px;
+            background-color:red;
+            margin:auto;
+            box-sizing: border-box;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="child"></div>
+</div>
+</body>
+</html>
