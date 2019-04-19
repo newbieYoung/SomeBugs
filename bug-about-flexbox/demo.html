@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局 子元素 在主轴方向内容会被截去 哪怕是偏移之后截去的内容也不会再出现</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover ">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        body{
+            width:100vw;
+            height:100vh;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .parent{
+            width:100px;
+            height:100px;
+            background-color:gray;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .parent .child{
+            width:200px;
+            height:200px;
+            background-color:lightblue;
+            opacity: .5;
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
