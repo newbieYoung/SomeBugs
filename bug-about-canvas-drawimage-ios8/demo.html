@@ -11,15 +11,27 @@
     <script>
         window.onload = function(){
             var $demo = document.querySelector('#demo');
-            $demo.width = 3968;
-            $demo.height = 2976;
             var ctx = $demo.getContext('2d');
 
+            //大图片（不显示）
+            $demo.width = 3968;
+            $demo.height = 2976;
+
             var img = new Image();
-            img.src = './demo.jpg';
+            img.src = './demo-1.jpg';
             img.onload = function(){
                 ctx.drawImage(img,0,0,$demo.width,$demo.height);
             }
+
+            //稍小图片（显示）
+//            $demo.width = 1400;
+//            $demo.height = 1400;
+//
+//            var img = new Image();
+//            img.src = './demo-2.jpg';
+//            img.onload = function(){
+//                ctx.drawImage(img,0,0,$demo.width,$demo.height);
+//            }
         }
     </script>
 </body>
