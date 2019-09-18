@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IOS 10 中 flex布局 在 button 中有兼容性问题</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover ">
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+      /**
+       * display:flex;
+       * align-items: center;
+       * justify-content: center;
+       * 在 button 标签中实现文字垂直水平居中时在 IOS 10 中有兼容性问题；
+       * 解决方案是改为 div 标签
+       */
+      .demo1{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width:200px;
+        height:50px;
+        font-size:20px;
+        color:#000;
+        background-color:gray;
+        border:none;
+        padding:0;
+        margin:0;
+      }
+      .demo2{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        width:200px;
+        height:50px;
+        font-size:20px;
+        color:#000;
+        background-color:pink;
+      }
+    </style>
+</head>
+<body>
+    <button class="demo1">按钮+文字</button>
+    <div class="demo2">div+文字</div>
+    <img style="width:200px;" src="./demo2.jpg" alt="">
+</body>
+</html>
